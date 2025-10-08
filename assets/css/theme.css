@@ -78,8 +78,8 @@
 	--tt-dark-color: #121212; /* Template dark color. #121212 */
 	--tt-light-color: #efedea; /* Template light color. #efedea */
 
-	--tt-bg-color: #0a0a0a; /* Template background color. #0a0a0a */
-	--tt-text-color: #efedea; /* Template text color. #efedea */
+	--tt-bg-color: #DFB7AD; /* Template background color. #0a0a0a */
+	--tt-text-color: #000000; /* Template text color. #efedea */
 	--tt-text-muted-color: #8f8f8f; /* Template text muted color. #8f8f8f */
 	--tt-border-color: rgb(133 133 133 / 50%); /* Template borders color. rgb(133 133 133 / 50%) */
 
@@ -90,7 +90,7 @@
 	--tt-alter-font: "Big Shoulders Display", sans-serif; /* Secondary/Alter font. */
 
 	/* Page transition */
-	--tt-page-trans-overlay-bg-color: #161616; /* Page transition overlay background color. #161616 */
+	--tt-page-trans-overlay-bg-color: #FFF2E1; /* Page transition overlay background color. #161616 */
 
 	/* Cursor ball */
 	--tt-ball-border-color: #666; /* Ball border color. #666 */
@@ -346,8 +346,8 @@ body.tt-transition .tt-ptr-prel-content {
 }
 
 .tt-ptr-prel-image {
-	max-height: 72px; /* You may need to change the img height to match your logo type! */
-	opacity: .7; /* You may need to change the opacity as well! */
+	max-height: 200px; /* You may need to change the img height to match your logo type! */
+	opacity: .9; /* You may need to change the opacity as well! */
 }
 
 
@@ -639,10 +639,10 @@ body.tt-magic-cursor #magic-cursor {
 /* --------------------------------------------------------------- *
  * Background noise (effect only if <body> has class "tt-noise"!)
 /* --------------------------------------------------------------- */
-
 .tt-bg-noise {
 	display: none;
 }
+
 body.tt-noise .tt-bg-noise {
 	position: absolute;
 	display: block;
@@ -654,33 +654,18 @@ body.tt-noise .tt-bg-noise {
 	pointer-events: none;
 	overflow: hidden;
 }
-body.tt-noise .tt-bg-noise:before { 
+
+body.tt-noise {
 	position: absolute;
 	content: '';
-	top: -10rem;
-	left: -10rem;
 	width: calc(100% + 20rem);
-	height: calc(100% + 20rem);
+	height: 100%;
 	z-index: 0;
 	pointer-events: none;
-	background-image: url(../img/bg-noise.png);
-	background-position: 50%;
-	animation: BgNoise 1s steps(2) infinite;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
-@keyframes BgNoise {
-	0% { transform: translate3d(0, 9rem, 0) }
-	10% { transform: translate3d(-1rem, -4rem, 0) }
-	20% { transform: translate3d(-8rem, 2rem, 0) }
-	30% { transform: translate3d(9rem, -9rem, 0) }
-	40% { transform: translate3d(-2rem, 7rem, 0) }
-	50% { transform: translate3d(-9rem, -4rem, 0) }
-	60% { transform: translate3d(2rem, 6rem, 0) }
-	70% { transform: translate3d(7rem, -8rem, 0) }
-	80% { transform: translate3d(-9rem, 1rem, 0) }
-	90% { transform: translate3d(6rem, -5rem, 0) }
-	to { transform: translate3d(-7rem, 0, 0) }
-}
-
 
 
 /* ------------------------------------------------------------- *
