@@ -5173,6 +5173,7 @@ body:not(.is-mobile) .tt-accordion.tt-ac-hover .tt-accordion-item.active .tt-acc
 		padding-right: 4%;
 		margin: auto;
 		overflow: hidden;
+		
 	}
 	.tt-wrap .tt-horizontal-accordion {
 		padding-left: 0;
