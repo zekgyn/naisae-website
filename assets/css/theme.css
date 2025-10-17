@@ -219,7 +219,6 @@ section {
 	position: relative; 
 }
 
-button {}
 button:focus { 
 	outline: none; 
 }
@@ -655,16 +654,34 @@ body.tt-noise .tt-bg-noise {
 	overflow: hidden;
 }
 
-body.tt-noise {
+body.tt-noise .tt-bg-noise:before {
 	position: absolute;
 	content: '';
+	top: -10rem;
+	left: -10rem;
 	width: calc(100% + 20rem);
-	height: 100%;
+	height: calc(100% + 20rem);
 	z-index: 0;
 	pointer-events: none;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
+	/* background-size: cover;
+	background-position: center center; */
+	/* background-repeat: no-repeat; */
+	/* background-image: url(../img/bg-noise.png); */
+	background-position: 50%;
+	animation: BgNoise 1s steps(2) infinite;
+}
+@keyframes BgNoise {
+	0% { transform: translate3d(0, 9rem, 0) }
+	10% { transform: translate3d(-1rem, -4rem, 0) }
+	20% { transform: translate3d(-8rem, 2rem, 0) }
+	30% { transform: translate3d(9rem, -9rem, 0) }
+	40% { transform: translate3d(-2rem, 7rem, 0) }
+	50% { transform: translate3d(-9rem, -4rem, 0) }
+	60% { transform: translate3d(2rem, 6rem, 0) }
+	70% { transform: translate3d(7rem, -8rem, 0) }
+	80% { transform: translate3d(-9rem, 1rem, 0) }
+	90% { transform: translate3d(6rem, -5rem, 0) }
+	to { transform: translate3d(-7rem, 0, 0) }
 }
 
 
@@ -3063,7 +3080,7 @@ input[type=radio] {
 /* textarea */
 textarea,
 textarea.tt-form-control {
-	padding: 15px
+	padding: 15px;
 	resize: vertical;
 }
 
@@ -3191,8 +3208,6 @@ input[type=range] {
 }
 
 /* Custom file upload */
-.tt-form-file {
-}
 .btn-file {
 	vertical-align: middle;
 }

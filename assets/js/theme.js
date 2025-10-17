@@ -1848,7 +1848,7 @@
 		const formData = $(this).serialize();
 		$.ajax({
 			type: "POST",
-			url: "mail.php", // Path to your PHP script.
+			url: "../../src/mail.php", // Path to your PHP script.
 			data: formData,
 			dataType: "json",
 

@@ -1,0 +1,19 @@
+{
+    "name": "zekashgyn/ney-website",
+    "description": "Seinding email",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zekashgyn\\NeyWebsite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juma Yunus",
+            "email": "73176621+zekgyn@users.noreply.github.com"
+        }
+    ]
+}
