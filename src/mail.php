@@ -2,46 +2,75 @@
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader (created by composer, not included with PHPMailer)
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php'; // Correct path to autoloader
 
-//Create an instance; passing `true` enables exceptions
+header('Content-Type: application/json');
+
+$response = ['success' => false, 'message' => 'Unknown error occurred'];
+
+// Ensure POST request
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
+    exit;
+}
+
+// Validate and sanitize input
+$name    = isset($_POST['name']) ? trim($_POST['name']) : null;
+$email   = isset($_POST['email']) ? trim($_POST['email']) : null;
+$option  = isset($_POST['option']) ? trim($_POST['option']) : null;
+$message = isset($_POST['message']) ? trim($_POST['message']) : null;
+
+// Basic validation
+if (!$name || !$email || !$option || !$message) {
+    echo json_encode(['success' => false, 'message' => 'All fields are required.']);
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(['success' => false, 'message' => 'Invalid email address.']);
+    exit;
+}
+
+// Configure PHPMailer
 $mail = new PHPMailer(true);
 
 try {
-    //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.example.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'user@example.com';                     //SMTP username
-    $mail->Password   = 'secret';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    // Gmail SMTP settings
+    $mail->isSMTP();
+    $mail->Host       = 'mail.passkago.co.tz';
+    $mail->SMTPAuth   = true;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port       = 465;
 
-    //Recipients
-    $mail->setFrom('from@example.com', 'Mailer');
-    $mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
-    $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo('info@example.com', 'Information');
-    $mail->addCC('cc@example.com');
-    $mail->addBCC('bcc@example.com');
+    // Sender and recipient
+    $mail->setFrom($email, $name);              // From user
+    $mail->addReplyTo($email, $name);           // Reply goes back to sender
 
-    //Attachments
-    $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+    // Email content
+    $mail->isHTML(true);
+    $mail->Subject = "New enquiry: {$option}";
+    $mail->Body = "
+        <h2>New enquiry received</h2>
+        <p><strong>Name:</strong> {$name}</p>
+        <p><strong>Email:</strong> {$email}</p>
+        <p><strong>Topic:</strong> {$option}</p>
+        <p><strong>Message:</strong><br>{$message}</p>
+        <hr>
+        <p>Sent from your website contact form.</p>
+    ";
 
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->AltBody = "New enquiry:\nName: {$name}\nEmail: {$email}\nTopic: {$option}\nMessage: {$message}";
 
     $mail->send();
-    echo 'Message has been sent';
+
+    $response = ['success' => true, 'message' => 'Thank you! Your message has been sent successfully.'];
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    $response = ['success' => false, 'message' => 'Mailer Error: ' . $mail->ErrorInfo];
 }
+
+echo json_encode($response);
+exit;
+
