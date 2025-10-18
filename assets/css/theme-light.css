@@ -75,8 +75,6 @@ body.tt-lightmode-on {
 	border-radius: 100%;
 	transition: background-color .3s, color .3s;
 }
-.tt-style-switch-inner:hover {
-}
 
 .tt-stsw-dark {
 	display: none;
@@ -89,8 +87,6 @@ body.tt-lightmode-on .tt-stsw-light {
 }
 
 /* If header layout-2 is enabled. */
-#tt-header.tt-header-alter .tt-style-switch {
-}
 @media (max-width: 1024px) {
 	#tt-header.tt-header-alter .tt-style-switch {
 		margin-left: 0;
