@@ -40,18 +40,22 @@ $mail = new PHPMailer(true);
 try {
     // Gmail SMTP settings
     $mail->isSMTP();
-    $mail->Host       = 'mail.passkago.co.tz';
+    $mail->Host       = 'your e-mail smtp server';
     $mail->SMTPAuth   = true;
+    $mail->Username   = 'your email account'; // Replace with your email
+    $mail->Password   = 'your password';   // Use your email Password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
     // Sender and recipient
     $mail->setFrom($email, $name);              // From user
+    $mail->addAddress('your email account');   // same email as on smtp settings above
     $mail->addReplyTo($email, $name);           // Reply goes back to sender
 
     // Email content
     $mail->isHTML(true);
     $mail->Subject = "New enquiry: {$option}";
+    //todo update email ui to match website when possible
     $mail->Body = "
         <h2>New enquiry received</h2>
         <p><strong>Name:</strong> {$name}</p>
@@ -73,4 +77,3 @@ try {
 
 echo json_encode($response);
 exit;
-
