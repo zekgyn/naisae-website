@@ -324,7 +324,7 @@ body.tt-transition .tt-ptr-overlay-top {
   width: 50%;
   height: 100vh;
   height: 100svh;
-  background-color: var(--tt-page-trans-overlay-bg-color);
+  background-color:#fff;
   z-index: 1;
 }
 body.tt-transition .tt-ptr-overlay-bottom {
@@ -335,7 +335,7 @@ body.tt-transition .tt-ptr-overlay-bottom {
   width: 50%;
   height: 100vh;
   height: 100svh;
-  background-color: var(--tt-page-trans-overlay-bg-color);
+  background-color: #fff;
   z-index: 1;
 }
 
