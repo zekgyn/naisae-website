@@ -6,6 +6,12 @@ use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/../vendor/autoload.php'; // Correct path to autoloader
 
+// ✅ Load environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
+
+
 header('Content-Type: application/json');
 
 $response = ['success' => false, 'message' => 'Unknown error occurred'];
@@ -40,16 +46,16 @@ $mail = new PHPMailer(true);
 try {
     // Gmail SMTP settings
     $mail->isSMTP();
-    $mail->Host       = 'your e-mail smtp server';
+    $mail->Host       = $_ENV['EMAIL_SMTP_HOST'];
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'your email account'; // Replace with your email
-    $mail->Password   = 'your password';   // Use your email Password
+    $mail->Username   = $_ENV['EMAIL_SMTP_USER']; // Replace with your email
+    $mail->Password   = $_ENV['EMAIL_SMTP_PASSSWORD'];   // Use your email Password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
     // Sender and recipient
     $mail->setFrom($email, $name);              // From user
-    $mail->addAddress('your email account');   // same email as on smtp settings above
+    $mail->addAddress($_ENV['EMAIL_SMTP_USER']);   // same email as on smtp settings above
     $mail->addReplyTo($email, $name);           // Reply goes back to sender
 
     // Email content
