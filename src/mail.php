@@ -69,7 +69,7 @@ try {
                     <title>New Contact Message</title>
                 </head>
 
-                <body style="font-family: Arial, sans-serif; background-color: #f8d9de; margin: 0; padding: 0;">
+                <body style="font-family: Arial, sans-serif; background-color: #f8d9de; margin: 0; padding: 0 0 40px 0;">
                     <table align="center" width="100%" cellpadding="0" cellspacing="0"
                         style="max-width: 600px; margin: 40px 40px; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
                         <tr>
