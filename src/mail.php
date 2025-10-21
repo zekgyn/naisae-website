@@ -60,7 +60,6 @@ try {
     // Email content
     $mail->isHTML(true);
     $mail->Subject = "Naisea Yona Website: Topic {$option}";
-    //todo update email ui to match website when possible
     $mail->Body = '
                 <!DOCTYPE html>
                 <html>
