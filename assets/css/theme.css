@@ -5634,6 +5634,10 @@ body:not(.is-mobile)
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  .tt-haci-description img {
+    max-height: 720px;
+    object-fit: contain;
+  }
 
   /* Content top */
   .tt-haci-content-top {
