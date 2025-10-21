@@ -3906,7 +3906,7 @@ input[type="range"] {
 /* Headings */
 .tt-contact-info h6 {
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 20px;
   opacity: 0.5;
 }
 
@@ -3936,7 +3936,7 @@ input[type="range"] {
 .tt-cd-icon {
   display: inline-block;
   margin-right: 10px;
-  font-size: 80%;
+  font-size: 100%;
 }
 
 /* Contact info big arrow
@@ -4660,7 +4660,7 @@ body:not(.is-mobile) .tt-btn:hover .tt-btn-line {
   justify-content: center;
   align-items: center;
   line-height: 1;
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 500;
   color: var(--tt-text-color);
   transition: opacity 0.2s;
@@ -5630,7 +5630,7 @@ body:not(.is-mobile)
     opacity: 0.8;
     line-clamp: 4;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* How many lines of text to display */
+    -webkit-line-clamp: 6; /* How many lines of text to display */
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
