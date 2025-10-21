@@ -11,7 +11,6 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
 
-
 header('Content-Type: application/json');
 
 $response = ['success' => false, 'message' => 'Unknown error occurred'];
@@ -49,7 +48,7 @@ try {
     $mail->Host       = $_ENV['EMAIL_SMTP_HOST'];
     $mail->SMTPAuth   = true;
     $mail->Username   = $_ENV['EMAIL_SMTP_USER']; // Replace with your email
-    $mail->Password   = $_ENV['EMAIL_SMTP_PASSSWORD'];   // Use your email Password
+    $mail->Password   = $_ENV['EMAIL_SMTP_PASSWORD'];   // Use your email Password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
