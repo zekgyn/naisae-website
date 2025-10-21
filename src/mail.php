@@ -61,8 +61,8 @@ try {
     $mail->isHTML(true);
     $mail->Subject = "Naisea Yona Website: Topic {$option}";
     $mail->Body = '
-                <!DOCTYPE html>
-                <html>
+        <!DOCTYPE html>
+            <html>
 
                 <head>
                     <meta charset="UTF-8">
@@ -117,7 +117,7 @@ try {
                     </table>
                 </body>
 
-                </html>';
+            </html>';
 
     $mail->AltBody = "New enquiry:\nName: {$name}\nEmail: {$email}\nTopic: {$option}\nMessage: {$message}";
 
