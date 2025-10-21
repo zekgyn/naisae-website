@@ -59,17 +59,65 @@ try {
 
     // Email content
     $mail->isHTML(true);
-    $mail->Subject = "New enquiry: {$option}";
-    //todo update email ui to match website when possible
-    $mail->Body = "
-        <h2>New enquiry received</h2>
-        <p><strong>Name:</strong> {$name}</p>
-        <p><strong>Email:</strong> {$email}</p>
-        <p><strong>Topic:</strong> {$option}</p>
-        <p><strong>Message:</strong><br>{$message}</p>
-        <hr>
-        <p>Sent from your website contact form.</p>
-    ";
+    $mail->Subject = "Naisea Yona Website: Topic {$option}";
+    $mail->Body = '
+        <!DOCTYPE html>
+            <html>
+
+                <head>
+                    <meta charset="UTF-8">
+                    <title>New Contact Message</title>
+                </head>
+
+                <body style="font-family: Arial, sans-serif; background-color: #f8d9de; margin: 0; padding: 40px 0 40px 0;">
+                    <table align="center" width="100%" cellpadding="0" cellspacing="0"
+                        style="max-width: 600px; margin: 40px 40px; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                        <tr>
+                            <td style="background-color: #e06263; color: white; text-align: center; padding: 20px;">
+                                <h1 style="margin: 0; color: #121212">New Inquiry Received</h1>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 30px;">
+                                <p style="font-size: 16px; color: #333;">Hello, Admin</p>
+                                <p style="font-size: 15px; color: #333;">
+                                    You&rsquo;ve received a new message from your website contact form.
+                                </p>
+
+                                <table width="100%" cellpadding="8" cellspacing="0"
+                                    style="background-color: #f8d9de; border-radius: 6px; margin: 20px 0;">
+                                    <tr>
+                                        <td><strong>Name:</strong></td>
+                                        <td>' . htmlspecialchars($name) . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Email:</strong></td>
+                                        <td>' . htmlspecialchars($email) . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Topic:</strong></td>
+                                        <td>' . htmlspecialchars($_POST["option"]) . '</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Message:</strong></td>
+                                        <td>' . nl2br(htmlspecialchars($_POST["message"])) . '</td>
+                                    </tr>
+                                </table>
+
+                                <p style="font-size: 14px; color: #e06263;">Please respond to this message directly to reply to the
+                                    sender.</p>
+
+                                <hr style="border: none; border-top: 1px solid #e06263; margin: 30px 0;">
+
+                                <p style="font-size: 12px; color: #888; text-align: center;">
+                                    &copy; ' . date("Y") . ' CarryKindness. All rights reserved.
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </body>
+
+            </html>';
 
     $mail->AltBody = "New enquiry:\nName: {$name}\nEmail: {$email}\nTopic: {$option}\nMessage: {$message}";
 

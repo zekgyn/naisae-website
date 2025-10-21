@@ -3382,7 +3382,7 @@ select {
   cursor: pointer;
 }
 select option {
-  background-color: var(--tt-bg-color);
+  background-color: var(--tt-ball-color);
   color: var(--tt-text-color);
 }
 select option[value=""][disabled] {
