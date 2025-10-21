@@ -101,6 +101,8 @@ try {
           </tr>
         </table>
 
+        <p style="font-size: 14px; color: #e06263;">Please respond to this message directly to reply to the sender.</p>
+
         <hr style="border: none; border-top: 1px solid #e06263; margin: 30px 0;">
 
         <p style="font-size: 12px; color: #888; text-align: center;">
