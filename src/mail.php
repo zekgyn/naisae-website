@@ -59,7 +59,7 @@ try {
 
     // Email content
     $mail->isHTML(true);
-    $mail->Subject = "New enquiry: {$option}";
+    $mail->Subject = "Naisea Yona Website: Topic {$option}";
     //todo update email ui to match website when possible
     $mail->Body = '
 <!DOCTYPE html>
@@ -69,9 +69,9 @@ try {
   <title>New Contact Message</title>
 </head>
 <body style="font-family: Arial, sans-serif; background-color: #f8d9de; margin: 0; padding: 0;">
-  <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+  <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 40px 40px; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
     <tr>
-      <td style="background-color: #121212; color: white; text-align: center; padding: 20px;">
+      <td style="background-color: #e06263; color: white; text-align: center; padding: 20px;">
         <h1 style="margin: 0;">New Inquiry Received</h1>
       </td>
     </tr>
