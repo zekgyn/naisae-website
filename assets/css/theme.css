@@ -2198,6 +2198,11 @@ body:not(.tt-m-menu-open) #tt-header.tt-header-scroll.tt-fly-up {
     display: none;
   }
 }
+.ph-caption-blog {
+	margin-bottom: 20px;
+	color: #be445b;
+	line-height: 1.1;
+}
 
 /* Page header caption categories */
 .ph-caption-categories {

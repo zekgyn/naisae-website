@@ -404,11 +404,11 @@
 	font-size: clamp(38px, 4vw, 58px);
 	font-weight: bold;
 	font-weight: 600;
-	color: var(--tt-text-color);
+	color: #be445b;
 	line-height: 1.1;
 }
 .bli-title a {
-	color: var(--tt-text-color);
+	color: #be445b;
 	display: inline;
 	background-repeat: no-repeat;
 	background-image: -o-linear-gradient(transparent calc(100% - 2px),currentColor 2px);
